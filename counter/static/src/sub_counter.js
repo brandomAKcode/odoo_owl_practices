@@ -1,10 +1,9 @@
 /** @odoo-module **/
 
 import { Component, useState } from "@odoo/owl";
-import { SubCounter } from "./sub_counter";
 
-export class Counter extends Component {
-    static template = "counter.counter";
+export class SubCounter extends Component {
+    static template = "counter.sub_counter";
 
     setup() {
         this.state = useState({ value: 0 });
@@ -13,6 +12,4 @@ export class Counter extends Component {
     increment() {
         this.state.value++;
     }
-
-    static components = { SubCounter };
 }
