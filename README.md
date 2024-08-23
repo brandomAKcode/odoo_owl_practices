@@ -3,3 +3,4 @@
 ## odoo owl practice
 
 Odoo Owl allows us to create reactive interfaces. This repository will have several commits that will show various examples of this library.
+I'm primarily testing within a small set of files to create a quick reference for Owl.
