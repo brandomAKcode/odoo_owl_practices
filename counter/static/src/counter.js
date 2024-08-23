@@ -6,8 +6,10 @@ import { SubCounter } from "./sub_counter";
 export class Counter extends Component {
     static template = "counter.counter";
 
+
     setup() {
         this.state = useState({ value: 0 });
+
     }
 
     increment() {
@@ -15,4 +17,5 @@ export class Counter extends Component {
     }
 
     static components = { SubCounter };
+    test_out = "<h1></h1>";
 }
