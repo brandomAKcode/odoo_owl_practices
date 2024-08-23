@@ -29,7 +29,7 @@
 								<!-- card 2 -->
 								<div class="card">
 									<div class="card-body">
-										<SubCounter description="'si señor'" callback="childCAllback"/>
+										<SubCounter description="'si señor'" callback="childCAllback" todoList="todo.list" />
 									</div>
 								</div>
 								<!-- end card 2 -->

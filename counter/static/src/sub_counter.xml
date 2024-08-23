@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
-
+    
     <t t-name="counter.sub_counter">
         <div class="p-3">
             <p>Counter: <t t-esc="state.value"/></p>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <button class="btn btn-primary" t-on-click="increment">Increment</button>
                 <button class="btn btn-success" t-on-click="props.callback">Increase parent</button>
-              </div>
+            </div>
             <p t-out="props.description" />
+            
+            <div class="card">
+                <div class="card-body">
+                    <t t-foreach="props.todoList" t-as="x" t-key="x.id">
+                        <p t-att-class="{'text-decoration-line-through': x.isCompleted}">
+                            <t t-esc="x_index + 1" />. <t t-esc="x.description" /> <br t-if="!x_last"/>
+                        </p>
+                    </t>
+                </div>
+            </div>
+            
         </div>
     </t>
-
+    
 </templates>

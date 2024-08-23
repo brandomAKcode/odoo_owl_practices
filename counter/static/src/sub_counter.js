@@ -7,11 +7,16 @@ export class SubCounter extends Component {
     
     static props = {
         description: {type: String},
-        callback: {type: Function}
+        callback: {type: Function},
+        todoList: {
+            type: Array,
+            element: {type: Object, shape: {id: Number, description: String, isCompleted: Boolean}}
+        }
     }
 
     setup() {
         this.state = useState({ value: 0 });
+        console.log(this.props.todoItem);
     }
 
     increment() {
