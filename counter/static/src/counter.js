@@ -9,11 +9,16 @@ export class Counter extends Component {
 
     setup() {
         this.state = useState({ value: 0 });
-
+        this.childCAllback = this.childCAllback.bind(this);
     }
 
     increment() {
         this.state.value++;
+    }
+
+    childCAllback() {
+        this.state.value++;
+        alert('Child active this function :)');
     }
 
     static components = { SubCounter };
