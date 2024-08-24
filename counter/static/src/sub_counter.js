@@ -7,6 +7,7 @@ export class SubCounter extends Component {
     
     static props = {
         description: {type: String},
+        addTodo: {type: Function},
         callback: {type: Function},
         todoList: {
             type: Array,
@@ -15,7 +16,7 @@ export class SubCounter extends Component {
     }
 
     setup() {
-        this.state = useState({ value: 0 });
+        this.state = useState({ value: 0, newTodo: '' });
         console.log(this.props.todoItem);
     }
 

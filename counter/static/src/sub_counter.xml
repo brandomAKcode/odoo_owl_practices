@@ -11,6 +11,10 @@
             <p t-out="props.description" />
             
             <div class="card">
+                <div class="card-header">
+                    <input type="text" class="form-control" placeholder="Todo" t-model="state.newTodo" t-on-keyup="ev => ev.keyCode == 13 ? props.addTodo(state.newTodo) : console.log('Nothing')" />
+                    <t t-esc="state.newTodo" />
+                </div>
                 <div class="card-body">
                     <t t-foreach="props.todoList" t-as="x" t-key="x.id">
                         <p t-att-class="{'text-decoration-line-through': x.isCompleted}">

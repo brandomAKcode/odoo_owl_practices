@@ -9,6 +9,7 @@ export class Counter extends Component {
     setup() {
         this.state = useState({ value: 0 });
         this.childCAllback = this.childCAllback.bind(this);
+        this.addTodo = this.addTodo.bind(this);
         this.todo = useState({list: [
             { id: 1, description: "buy sugar", isCompleted: false },
             { id: 2, description: "buy bread", isCompleted: true },
@@ -26,6 +27,13 @@ export class Counter extends Component {
     childCAllback() {
         this.state.value++;
         alert('Child active this function :)');
+    }
+
+    addTodo(todo) {
+        console.log(this.todo.list.length);
+        this.todo.list.push(
+            { id: this.todo.list.length + 1, description: todo, isCompleted: false }
+        )
     }
 
     static components = { SubCounter };
