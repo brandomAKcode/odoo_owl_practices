@@ -8,8 +8,10 @@ export class Counter extends Component {
 
     setup() {
         this.state = useState({ value: 0 });
-        this.childCAllback = this.childCAllback.bind(this);
         this.addTodo = this.addTodo.bind(this);
+        this.increment = this.increment.bind(this);
+        this.toggleState = this.toggleState.bind(this);
+        this.deleteTodo = this.deleteTodo.bind(this);
         this.todo = useState({list: [
             { id: 1, description: "buy sugar", isCompleted: false },
             { id: 2, description: "buy bread", isCompleted: true },
@@ -24,9 +26,14 @@ export class Counter extends Component {
         this.state.value++;
     }
 
-    childCAllback() {
-        this.state.value++;
-        alert('Child active this function :)');
+    toggleState (id_todo) {
+        const index = this.todo.list.findIndex(x => x.id === id_todo);
+        this.todo.list[index].isCompleted = !this.todo.list[index].isCompleted;
+    }
+
+    deleteTodo(id_todo) {
+        const index = this.todo.list.findIndex(x => x.id === id_todo);
+        this.todo.list.splice(index, 1);
     }
 
     addTodo(todo) {

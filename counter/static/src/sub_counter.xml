@@ -6,19 +6,19 @@
             <p>Counter: <t t-esc="state.value"/></p>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                 <button class="btn btn-primary" t-on-click="increment">Increment</button>
-                <button class="btn btn-success" t-on-click="props.callback">Increase parent</button>
+                <button class="btn btn-success" t-on-click="props.onIncrement">Increase parent</button>
             </div>
             <p t-out="props.description" />
             
             <div class="card">
                 <div class="card-header">
-                    <input type="text" class="form-control" placeholder="Todo" t-model="state.newTodo" t-on-keyup="ev => ev.keyCode == 13 ? props.addTodo(state.newTodo) : console.log('Nothing')" />
+                    <input type="text" class="form-control" t-ref="input-focus" placeholder="Todo" t-model="state.newTodo" t-on-keyup="ev => ev.keyCode == 13 ? props.onAddTodo(state.newTodo) : console.log('Nothing')" />
                     <t t-esc="state.newTodo" />
                 </div>
                 <div class="card-body">
                     <t t-foreach="props.todoList" t-as="x" t-key="x.id">
                         <p t-att-class="{'text-decoration-line-through': x.isCompleted}">
-                            <t t-esc="x_index + 1" />. <t t-esc="x.description" /> <br t-if="!x_last"/>
+                            <input type="checkbox" class="form-check-input" t-on-click="() => props.onToggleState(x.id)" t-att="{ checked: x.isCompleted }" /> <t t-esc="x_index + 1" />. <t t-esc="x.description" /> <a href="#" t-on-click="() => props.onDeleteTodo(x.id)"><i class="fa fa-window-close text-danger" aria-hidden="true"></i></a> <br t-if="!x_last"/>
                         </p>
                     </t>
                 </div>
